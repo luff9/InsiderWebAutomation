@@ -3,7 +3,7 @@
 <suite name="Testing UI" thread-count="6" parallel="methods">
     <test name="Challenge">
         <classes>
-            <class name="LoginTest"/>
+            <class name="ChallengeTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
