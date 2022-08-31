@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class AssertLib {
-    AssertLib (){}
+    AssertLib() {
+    }
+
     public static void equals(WebDriver driver, String actual, String expected) {
         if (!actual.equals(expected)) {
             DriverLib.takeScreenShot(driver);

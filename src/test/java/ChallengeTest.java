@@ -34,11 +34,15 @@ public class ChallengeTest extends TestBase {
         homePage.acceptCookies();
         homePage.gotoCareers();
         careerPage.gotoLocation();
-        AssertLib.equals(this.driver, careerPage.getBlockLocation().isDisplayed(), true);
-        AssertLib.equals(this.driver, careerPage.getLocationList().size() > 0, true);
+        AssertLib.equals(this.driver, careerPage.getBlockLocation()
+                                                .isDisplayed(), true);
+        AssertLib.equals(this.driver, careerPage.getLocationList()
+                                                .size() > 0, true);
         careerPage.gotoLifeAtInsider();
-        AssertLib.equals(this.driver, careerPage.getBlockLifeAtInsider().isDisplayed(), true);
-        AssertLib.equals(this.driver, careerPage.getBlockLifeAtInsiderPhotos().size() > 0, true);
+        AssertLib.equals(this.driver, careerPage.getBlockLifeAtInsider()
+                                                .isDisplayed(), true);
+        AssertLib.equals(this.driver, careerPage.getBlockLifeAtInsiderPhotos()
+                                                .size() > 0, true);
     }
 
     @Test(dataProvider = "driverAndJobListData", dataProviderClass = TestData.class)
@@ -57,8 +61,10 @@ public class ChallengeTest extends TestBase {
         qualityAssurancePage.gotoAllQaJobs();
         openPositionPage.setLocation(location);
         openPositionPage.setDepartment(jobPosition);
-        AssertLib.equals(driver, openPositionPage.getJobs().size() > 0, true);
-        DriverLib.scrollIntoView(driver, openPositionPage.getJobs().get(0), Block.center);
+        AssertLib.equals(driver, openPositionPage.getJobs()
+                                                 .size() > 0, true);
+        DriverLib.scrollIntoView(driver, openPositionPage.getJobs()
+                                                         .get(0), Block.center);
         for (WebElement el : openPositionPage.getJobs()) {
             AssertLib.equals(driver, openPositionPage.getJobTitle(el), jobPosition);
             AssertLib.equals(driver, openPositionPage.getJobLocation(el), location);
@@ -66,11 +72,13 @@ public class ChallengeTest extends TestBase {
         for (WebElement el : openPositionPage.getJobs()) {
             openPositionPage.applyJob(el);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
+            driver.switchTo()
+                  .window(tabs.get(1));
             String url = driver.getCurrentUrl();
             AssertLib.equals(driver, url.contains("jobs.lever.co"), true);
             driver.close();
-            driver.switchTo().window(tabs.get(0));
+            driver.switchTo()
+                  .window(tabs.get(0));
         }
     }
 }

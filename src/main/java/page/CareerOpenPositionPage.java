@@ -34,28 +34,35 @@ public class CareerOpenPositionPage {
 
 
     public void setLocation(String location) {
-        getDropboxSelection().get(0).click();
+        getDropboxSelection().get(0)
+                             .click();
         getOptionLocation(location).click();
-        getDropboxSelection().get(0).click();
+        getDropboxSelection().get(0)
+                             .click();
     }
 
     public void setDepartment(String department) {
-        getDropboxSelection().get(1).click();
+        getDropboxSelection().get(1)
+                             .click();
         getOptionDepartment(department).click();
-        getDropboxSelection().get(1).click();
+        getDropboxSelection().get(1)
+                             .click();
     }
 
     public String getJobTitle(WebElement el) {
-        return el.findElement(By.xpath("//span[contains(@class,'position-department')]")).getText();
+        return el.findElement(By.xpath("//span[contains(@class,'position-department')]"))
+                 .getText();
     }
 
     public String getJobLocation(WebElement el) {
-        return el.findElement(By.xpath("//div[contains(@class,'position-location')]")).getText();
+        return el.findElement(By.xpath("//div[contains(@class,'position-location')]"))
+                 .getText();
     }
 
     public void applyJob(WebElement el) {
         moveToWebElement(driver, el);
-        el.findElement(By.xpath("//a[contains(text(),'Apply Now')]")).click();
+        el.findElement(By.xpath("//a[contains(text(),'Apply Now')]"))
+          .click();
     }
 
 

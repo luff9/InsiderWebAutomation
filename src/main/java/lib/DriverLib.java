@@ -26,8 +26,12 @@ public class DriverLib {
             case EDGE -> getEdgeDriver();
             case CHROME -> getChromeDriver();
         };
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage()
+              .window()
+              .maximize();
+        driver.manage()
+              .timeouts()
+              .implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
 
@@ -35,7 +39,9 @@ public class DriverLib {
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.addArguments("--disable-notifications");
         edgeOptions.addArguments("--disable-infobars");
-        return WebDriverManager.edgedriver().capabilities(edgeOptions).create();
+        return WebDriverManager.edgedriver()
+                               .capabilities(edgeOptions)
+                               .create();
     }
 
     private static WebDriver getFirefoxDriver() {
@@ -45,7 +51,9 @@ public class DriverLib {
         firefoxOptions.addArguments("--disable-extensions");
         firefoxOptions.addArguments("--no-sandbox");
         firefoxOptions.addPreference("dom.webnotifications.enabled", false);
-        return WebDriverManager.firefoxdriver().capabilities(firefoxOptions).create();
+        return WebDriverManager.firefoxdriver()
+                               .capabilities(firefoxOptions)
+                               .create();
     }
 
     private static WebDriver getChromeDriver() {
@@ -53,7 +61,9 @@ public class DriverLib {
         chromeOptions.addArguments("disable-infobars");
         chromeOptions.addArguments("--window-position=2000,0");
         chromeOptions.addArguments("--disable-notifications");
-        return WebDriverManager.chromedriver().capabilities(chromeOptions).create();
+        return WebDriverManager.chromedriver()
+                               .capabilities(chromeOptions)
+                               .create();
     }
 
     public static void scrollIntoView(WebDriver driver, WebElement el, Block block) {
@@ -87,7 +97,9 @@ public class DriverLib {
 
     public static void moveToWebElement(WebDriver driver, WebElement el) {
         Actions actions = new Actions(driver);
-        actions.moveToElement(el).click().perform();
+        actions.moveToElement(el)
+               .click()
+               .perform();
     }
 
 }
